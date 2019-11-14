@@ -1,23 +1,23 @@
 import mongoose, { Document, Schema } from 'mongoose'
 
-enum typeEnum {
+export enum typeEnum {
     Point = 'Point'
 }
 
 export interface Ilocation extends Document {
     type: typeEnum
     coordinates: Array<Number>
-    adress: string
+    city: string
     street: string
-    streetNumber: string
+    streetNumber?: string
     cep: string
     state: string
     neighborhood: string
-    complement: string
+    complement?: string
 }
 
 export const locationSchema: Schema = new mongoose.Schema({
-    adress: {
+    city: {
         type: String,
         required: true
     },
@@ -26,8 +26,7 @@ export const locationSchema: Schema = new mongoose.Schema({
         required: true
     },
     streetNumber: {
-        type: String,
-        required: true
+        type: String
     },
     cep: {
         type: String,
@@ -44,15 +43,14 @@ export const locationSchema: Schema = new mongoose.Schema({
     type: {
         type: String,
         enum: ['Point'],
-        required: true
     },
     coordinates: {
         type: [Number],
-        required: true
     },
     complement: {
         type: String
     }
 }, { _id: false })
 
-export default mongoose.model<Ilocation>('Location', locationSchema)
+
+export default mongoose.model<Ilocation>('location', locationSchema)
