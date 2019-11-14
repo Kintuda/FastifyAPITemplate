@@ -1,21 +1,15 @@
-import mongoose, { Document, Schema, mongo } from 'mongoose'
-import { locationSchema, Ilocation } from './location'
-
-enum userRole {
-    PLAYER = 'PLAYER',
-    ADMIN = 'ADMIN'
-}
+import mongoose, { Document, Schema } from 'mongoose'
+import { locationSchema, Ilocation } from '../../sharedModel/location'
+import { hash } from 'bcryptjs'
 
 export interface Iuser extends Document {
-    authId: string
     firstName: string
     lastName: string
     phone: string
+    password: string
     email: string
     location: Ilocation
-    role: userRole
-    dateBirthday: Date
-    userOptData: {}
+    dateBirthday?: Date
 }
 
 const userSchema: Schema = new mongoose.Schema({
@@ -24,6 +18,10 @@ const userSchema: Schema = new mongoose.Schema({
         type: String
     },
     lastName: {
+        required: true,
+        type: String
+    },
+    password: {
         required: true,
         type: String
     },
@@ -39,17 +37,21 @@ const userSchema: Schema = new mongoose.Schema({
         required: true,
         type: locationSchema
     },
-    role: {
-        required: true,
-        type: String,
-        enum: ['PLAYER', 'ADMIN']
-    },
     dateBirthday: {
         required: true,
         type: Date
     },
-    userOptData: {}
-
 }, { timestamps: true })
+
+userSchema.pre<Iuser>('save', function (next) {
+    if (this.isNew || this.isModified('password')) {
+        hash(this.password, 8, (err, hash) => {
+            if (err) return next(err)
+            this.password = hash
+            next()
+        })
+    }
+    next()
+})
 
 export default mongoose.model<Iuser>('User', userSchema)

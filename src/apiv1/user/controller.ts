@@ -1,9 +1,12 @@
 import { FastifyRequest, FastifyReply } from "fastify"
 import { ServerResponse } from "http"
-import infoServices from '../services/userBundle/info'
+import { createNewUser, loginUser } from "./service"
+// import infoServices from '../services/userBundle/info'
 
-export const registerUser = (req: FastifyRequest, reply: FastifyReply<ServerResponse>) => {
+export const registerUser = async (req: FastifyRequest, reply: FastifyReply<ServerResponse>) => {
     const { body } = req
+    const result = await createNewUser(body)
+    return reply.code(201).send(result)
 }
 
 export const userInfo = async (req: FastifyRequest, reply: FastifyReply<ServerResponse>) => {
@@ -12,4 +15,6 @@ export const userInfo = async (req: FastifyRequest, reply: FastifyReply<ServerRe
 
 export const login = async (req: FastifyRequest, reply: FastifyReply<ServerResponse>) => {
     const { headers } = req
+    const data = await loginUser(headers)
+    return reply.code(200).send(data)
 }

@@ -16,8 +16,9 @@ process.on('unhandledRejection', (reason: any, promise: Promise<any>) => {
 
 const startServer = async () => {
     try {
-        await app.listen(config.app.port)
-        logger.info(`🚀  Server started on port ${config.app.port}`)
+        await app.listen(config.port, '0.0.0.0')
+        logger.info(`🚀  Server started on port ${config.port}`)
+        app.oas()
     } catch (error) {
         logger.error(`Error while starting the server ${error && error.message}`, {
             stack: error.stack
