@@ -1,4 +1,3 @@
-import 'dotenv/config'
 const { NODE_ENV, PORT, NAME, SECRET } = process.env
 const env = NODE_ENV || 'development'
 
