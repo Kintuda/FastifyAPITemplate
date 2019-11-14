@@ -8,7 +8,6 @@ const createConnection = async (instance: FastifyInstance) => {
         useUnifiedTopology: true
     }
     const connection = await mongoose.connect(config.db.uri || '', defaultConfig)
-    instance.decorate('conn', connection)
     instance.addHook('onClose', () => connection.disconnect())
 }
 
