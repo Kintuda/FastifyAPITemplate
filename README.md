@@ -4,7 +4,7 @@
 ## Installation
 
 ```bash
-npm install foobar
+npm install
 ```
 
 ## Environments
@@ -21,10 +21,11 @@ JWT_DEV=
 ```
 
 ## Routes
+```bash
 /user (POST)          - Create a new user  
 /user (GET)           - Fetch user information using JWT  
 /login (POST)         - Create JWT token using Basic Auth  
 /documentation (GET)  - Get OpenAPI doc  
-
+```
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
