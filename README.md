@@ -1,5 +1,12 @@
 # Fastify template - Typescript
 
+## Features
+
+* Typescript
+* Validation using JSON Schema
+* OpenAPI 3.0 Documentation
+* JWT token based auth
+
 
 ## Installation
 
