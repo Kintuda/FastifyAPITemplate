@@ -1,7 +1,7 @@
 import User from './model'
 import Location from '../../sharedModel/location'
 import fetchDataFromCep from '../../utils/cep'
-import { parseBasic, jwtSign } from '../../utils/auth'
+import { parseBasic, jwtSign, userFromToken } from '../../utils/auth'
 import bcrypt from 'bcryptjs'
 import { Unathorize } from '../../types/Errors'
 
@@ -29,6 +29,8 @@ export const loginUser = async (headers: any) => {
     return { token, expiration }
 }
 
-export const getUserInfo = () => {
-
+export const getUserInfo = async (headers: any) => {
+    const { authorization } = headers
+    const [_, content ] = authorization.split(' ')
+    return userFromToken(content)
 }

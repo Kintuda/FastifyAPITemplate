@@ -10,7 +10,9 @@ const {
     MONGO_USER,
     MONGO_PASS,
     PORT,
-    MONGO_DATABASE
+    MONGO_DATABASE,
+    JWT_DEV,
+    JWT_PROD
 } = process.env
 
 export enum Environments {
@@ -20,6 +22,7 @@ export enum Environments {
 
 interface Config {
     env: Environments
+    secret: string
     port: number
     db: {
         host: string
@@ -34,6 +37,7 @@ const port = Number.parseInt(PORT || '3000')
 const config: { [index: string]: Config } = {
     development: {
         port: port,
+        secret: JWT_DEV || '',
         env: Environments.DEV,
         db: {
             host: MONGO_HOST_DEV || '',
@@ -45,6 +49,7 @@ const config: { [index: string]: Config } = {
     },
     production: {
         port: port,
+        secret: JWT_PROD || '',
         env: Environments.PROD,
         db: {
             host: MONGO_HOST || '',

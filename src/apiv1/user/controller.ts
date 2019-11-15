@@ -1,6 +1,6 @@
 import { FastifyRequest, FastifyReply } from "fastify"
 import { ServerResponse } from "http"
-import { createNewUser, loginUser } from "./service"
+import { createNewUser, loginUser, getUserInfo } from "./service"
 // import infoServices from '../services/userBundle/info'
 
 export const registerUser = async (req: FastifyRequest, reply: FastifyReply<ServerResponse>) => {
@@ -10,7 +10,9 @@ export const registerUser = async (req: FastifyRequest, reply: FastifyReply<Serv
 }
 
 export const userInfo = async (req: FastifyRequest, reply: FastifyReply<ServerResponse>) => {
-    const { query } = req
+    const { headers } = req
+    const result = await getUserInfo(headers)
+    return reply.code(200).send(result)
 }
 
 export const login = async (req: FastifyRequest, reply: FastifyReply<ServerResponse>) => {
