@@ -21,10 +21,10 @@ JWT_DEV=
 ```
 
 ## Routes
-/user (POST)          - Create a new user
-/user (GET)           - Fetch user information using JWT
-/login (POST)         - Create JWT token using Basic Auth
-/documentation (GET)  - Get OpenAPI doc
+/user (POST)          - Create a new user  
+/user (GET)           - Fetch user information using JWT  
+/login (POST)         - Create JWT token using Basic Auth  
+/documentation (GET)  - Get OpenAPI doc  
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
