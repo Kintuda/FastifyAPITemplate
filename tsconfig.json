@@ -8,7 +8,11 @@
     "alwaysStrict": true
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "Dockerfile",
+    ".Dockerignore",
+    ".env.example",
+    "LICENSE"
   ],
   "include": [
     "src"
