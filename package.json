@@ -18,27 +18,27 @@
   "license": "MIT",
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
-    "@types/jsonwebtoken": "^8.3.5",
-    "@types/mongoose": "^5.5.36",
-    "@types/node": "^13.1.2",
-    "@types/pino": "^5.15.1",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/mongoose": "^5.7.32",
+    "@types/node": "^14.0.23",
+    "@types/pino": "^6.3.0",
     "dotenv": "^8.2.0",
-    "pino-pretty": "^3.5.0",
+    "pino-pretty": "^4.1.0",
     "ts-node-dev": "^1.0.0-pre.43",
     "tslint-config-standard": "^9.0.0",
-    "typescript": "^3.7.4"
+    "typescript": "^3.9.7"
   },
   "dependencies": {
-    "ajv": "^6.10.2",
+    "ajv": "^6.12.3",
     "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",
-    "fastify": "^2.11.0",
-    "fastify-cors": "^3.0.0",
-    "fastify-helmet": "^3.0.2",
-    "fastify-oas": "^2.5.0",
-    "fastify-plugin": "^1.6.0",
+    "fastify": "^3.1.1",
+    "fastify-cors": "^4.1.0",
+    "fastify-helmet": "^4.0.2",
+    "fastify-oas": "^2.7.1",
+    "fastify-plugin": "^2.0.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.8.3",
-    "pino": "^5.15.0"
+    "mongoose": "^5.9.25",
+    "pino": "^6.4.0"
   }
 }
