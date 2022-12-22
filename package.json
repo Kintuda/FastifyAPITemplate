@@ -37,7 +37,7 @@
     "fastify-helmet": "^4.0.2",
     "fastify-oas": "^2.7.1",
     "fastify-plugin": "^2.0.1",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^5.9.25",
     "pino": "^6.4.0"
   }
